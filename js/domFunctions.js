@@ -177,10 +177,10 @@ function makeNeqMML() {
   msub0.id('msub0');
   msub0.parent("mrow0");
 
-  mi0 = createElement("mi", "E");
+  mi0 = createElement("mi", "V");
   mi0.parent("msub0");
 
-  mi1 = createElement("mi", "ion");
+  mi1 = createElement("mi", "eq");
   mi1.parent("msub0");
 
   eqSign = createElement("mo", "=");
@@ -200,62 +200,125 @@ function makeNeqMML() {
   mrow2.id("mrow2");
   mrow2.parent("mfrac0");
 
-  mi2 = createElement("mi", "R");
-  mi2.parent("mrow2");
+  // gNa
 
-  mi3 = createElement("mi", "T");
-  mi3.parent("mrow2");
+  msub1 = createElement("msub");
+  msub1.id('msub1');
+  msub1.parent("mrow2");
 
+  mi2 = createElement("mi", "g");
+  mi2.parent("msub1");
+
+  mn0 = createElement("mn", "Na");
+  mn0.parent("msub1");
+
+  // ENa
+  msub2 = createElement("msub");
+  msub2.id('msub2');
+  msub2.parent("mrow2");
+
+  mi3 = createElement("mi", "E");
+  mi3.parent("msub2");
+
+  mn1 = createElement("mn", "Na");
+  mn1.parent("msub2");
+
+  // + 
+  mo0 = createElement("mo", "+");
+  mo0.parent("mrow2");
+
+  // gCl
+  msub3 = createElement("msub");
+  msub3.id('msub3');
+  msub3.parent("mrow2");
+
+  mi4 = createElement("mi", "g");
+  mi4.parent("msub3");
+
+  mn2 = createElement("mn", "Cl");
+  mn2.parent("msub3");
+
+  // ECl
+  msub4 = createElement("msub");
+  msub4.id('msub4');
+  msub4.parent("mrow2");
+
+  mi5 = createElement("mi", "E");
+  mi5.parent("msub4");
+
+  mn3 = createElement("mn", "Cl");
+  mn3.parent("msub4");
+
+  // + 
+  mo1 = createElement("mo", "+");
+  mo1.parent("mrow2");
+
+
+  // gK
+  msub5 = createElement("msub");
+  msub5.id('msub5');
+  msub5.parent("mrow2");
+
+  mi6 = createElement("mi", "g");
+  mi6.parent("msub5");
+
+  mn4 = createElement("mn", "K");
+  mn4.parent("msub5");
+
+  // EK
+  msub6 = createElement("msub");
+  msub6.id('msub6');
+  msub6.parent("mrow2");
+
+  mi7 = createElement("mi", "E");
+  mi7.parent("msub6");
+  
+  mn5 = createElement("mn", "K");
+  mn5.parent("msub6");
+
+  // gNa
   mrow3 = createElement("mrow");
   mrow3.id("mrow3");
   mrow3.parent("mfrac0");
 
-  mi4 = createElement("mi", "z");
-  mi4.parent("mrow3");
+  msub7 = createElement("msub");
+  msub7.id('msub7');
+  msub7.parent("mrow3");
 
-  mi5 = createElement("mi", "F");
-  mi5.parent("mrow3");
+  mi8 = createElement("mi", "g");
+  mi8.parent("msub7");
 
-  // -----------------------------------------
-  mrow4 = createElement("mrow");
-  mrow4.id("mrow4");
-  mrow4.parent("math");
+  mn6 = createElement("mn", "Na");
+  mn6.parent("msub7");
 
-  mi6 = createElement("mi", "ln");
-  mi6.parent("mrow4");
+  // + 
+  mo2 = createElement("mo", "+");
+  mo2.parent("mrow3");
 
-  mfence0 = createElement("mfenced");
-  mfence0.id("mfence0");
-  mfence0.parent("mrow4");
+  // gCl
+  msub8 = createElement("msub");
+  msub8.id('msub8');
+  msub8.parent("mrow3");
 
-  mfrac1 = createElement("mfrac");
-  mfrac1.id("mfrac1");
-  mfrac1.parent("mfence0");
+  mi9 = createElement("mi", "g");
+  mi9.parent("msub8");
 
-  sem0 = createElement("semantics");
-  sem0.id("sem0");
-  sem0.parent("mfrac1");
+  mn7 = createElement("mn", "Cl");
+  mn7.parent("msub8");
 
-  // anno0 = createElement("annotation-xml");
-  // anno0.attribute("encoding", "application/xhtml+xml");
-  // anno0.parent("sem0");
-  // anno0.id("neq-top");
+  // + 
+  mo3 = createElement("mo", "+");
+  mo3.parent("mrow3");
 
-  anno0 = createElement("mi", "Ion Out");
-  anno0.parent("sem0");
-  anno0.id("neq-top");
+  // gK
+  msub9 = createElement("msub");
+  msub9.id('msub9');
+  msub9.parent("mrow3");
 
-  sem1 = createElement("semantics");
-  sem1.id("sem1");
-  sem1.parent("mfrac1");
+  mi10 = createElement("mi", "g");
+  mi10.parent("msub9");
 
-  // anno1 = createElement("annotation-xml");
-  // anno1.attribute("encoding", "application/xhtml+xml");
-  // anno1.parent("sem1");
-  // anno1.id("neq-bot");
-  anno1 = createElement("mi", "Ion In");
-  anno1.parent("sem1");
-  anno1.id("neq-bot");
-
+  mn8 = createElement("mn", "K");
+  mn8.parent("msub9");
 
 }

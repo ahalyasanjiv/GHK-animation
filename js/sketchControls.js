@@ -59,9 +59,9 @@ var transferParticle = function(particleType,location) {
     oldInput.value(particles[location[particleType]][particleType].length);
     transferArray.push(new factory[particleType](OriX,OriY,diam,velocity,true));
     transferInput.value(particles[transferLocation][particleType].length);
-    if (particleType == document.getElementById('4').value) {
-      NernstFormulaInput(particleType);
-    }
+    // if (particleType == document.getElementById('4').value) {
+    //   NernstFormulaInput(particleType);
+    // }
   }, 1200)
 }
 
@@ -177,9 +177,9 @@ function increase(evt) {
 
   particleArray.push(new factory[particleType](randomX,randomY,particlesProperties[particleType].radius,velocity, true));
   var updatedParticleAmount = particleArray.length;
-  if (particleType == document.getElementById('4').value) {
-    NernstFormulaInput(particleType);
-  }
+  // if (particleType == document.getElementById('4').value) {
+  //   NernstFormulaInput(particleType);
+  // }
   input[eventID].value(updatedParticleAmount);
 }
 
@@ -201,9 +201,9 @@ function decrease(evt) {
   particleArray.splice(particleArray.length - 1, 1);
 
   var updatedParticleAmount = particleArray.length;
-  if (particleType == document.getElementById('4').value) {
-    NernstFormulaInput(particleType);
-  }
+  // if (particleType == document.getElementById('4').value) {
+  //   NernstFormulaInput(particleType);
+  // }
   input[eventID].value(updatedParticleAmount);
 }
 
@@ -237,17 +237,17 @@ function ChangeNumParticles(evt) {
       randomY = containers[particleLocation].tl.y + particlesProperties[particleType].radius + (Math.floor(Math.random() * yRange));
       var velocity = createVector(-3, -3);
       particleArray.push(new factory[particleType](randomX,randomY,particlesProperties[particleType].radius,velocity, true));
-      if (particleType == document.getElementById('4').value) {
-        NernstFormulaInput(particleType);
-      }
+      // if (particleType == document.getElementById('4').value) {
+      //   NernstFormulaInput(particleType);
+      // }
     }
   }
   else if (updatedAmount < particleArray.length) {
     for (var i=0; i<difference; i++) {
       particleArray.splice(particleArray.length - 1, 1);
-      if (particleType == document.getElementById('4').value) {
-        NernstFormulaInput(particleType);
-      }
+      // if (particleType == document.getElementById('4').value) {
+      //   NernstFormulaInput(particleType);
+      // }
     }
   }
 }
@@ -290,49 +290,17 @@ function makeUIs() {
   // Set up the section where answers are displayed
   var answer = 0;
 
-
-  // equations[2] = createSelect();
-  // equations[2].id(2);
-  // equations[2].attribute("xmlns", "http://www.w3.org/1999/xhtml")
-  // equations[2].class('eqninput');
-  // equations[2].parent('neq-top');
-  // for (var i=0; i<particleTypes.length; i++){
-  //   equations[2].option(particleTypes[i]);
-  // }
-  //
-  // equations[2].changed(NernstFormula);
-  //
-  // equations[3] = createSelect();
-  // equations[3].id(3);
-  // equations[3].attribute("xmlns", "http://www.w3.org/1999/xhtml")
-  // equations[3].class('eqninput');
-  // equations[3].parent('neq-bot');
-  // for (var i=0; i<particleTypes.length; i++){
-  //   equations[3].option(particleTypes[i]);
-  // }
-  // equations[3].changed(NernstFormula);
-
-  equations[4] = createSelect();
-  equations[4].id(4);
-  for (var i=0; i<particleTypes.length; i++){
-    equations[4].option(particleTypes[i]);
-  }
-  equations[4].class('qoptions');
-  equations[4].parent('equationdiv');
-  equations[4].changed(NernstFormula);
-  equations[1] = createElement('h3', 'Answer: '+answer+'V');
-  equations[1].class('qoptions');
-  equations[1].parent('equationdiv');
   // equations[4] = createSelect();
-  // equations[4].id(4);
-  // equations[4].attribute("xmlns", "http://www.w3.org/1999/xhtml")
-  // equations[4].class('eqninput');
-  // equations[4].parent('neq-ion');
+  // equations[4].id("ion-selector");
   // for (var i=0; i<particleTypes.length; i++){
   //   equations[4].option(particleTypes[i]);
   // }
-  //
+  // equations[4].class('qoptions');
+  // equations[4].parent('equationdiv');
   // equations[4].changed(NernstFormula);
+  equations[1] = createElement('h3', 'Answer: '+answer+'V');
+  equations[1].class('qoptions');
+  equations[1].parent('equationdiv');
 
   // Radio buttons to select ions to include
   for (var i=0; i<particleTypes.length; i++) {
@@ -424,24 +392,24 @@ function makeUIs() {
   }
 }
 
-function NernstFormula(evt) {
-  console.log("called");
-  var eventID = evt.target.id;
-  var newParticleType = equations[eventID].value();
-  var particleType = newParticleType;
-  NernstFormulaInput(particleType);
-}
+// function NernstFormula(evt) {
+//   console.log("called");
+//   var eventID = evt.target.id;
+//   var newParticleType = equations[eventID].value();
+//   var particleType = newParticleType;
+//   NernstFormulaInput(particleType);
+// }
 
-function NernstFormulaInput(particleType) {
-    var R = 8.314;
-    var T = 37 + 273.13
-    var z = particlesProperties[particleType]["charge"];
-    Xout = particles["outside"][particleType].length;
-    Xin = particles["inside"][particleType].length;
-    var F = 96485.3329;//0.096485;
-    var answer = (R*T)/(z*F)*Math.log(Xout/Xin);
-    equations[1].html('Answer: '+answer.toFixed(4)+'V');
-}
+// function NernstFormulaInput(particleType) {
+//     var R = 8.314;
+//     var T = 37 + 273.13
+//     var z = particlesProperties[particleType]["charge"];
+//     Xout = particles["outside"][particleType].length;
+//     Xin = particles["inside"][particleType].length;
+//     var F = 96485.3329;//0.096485;
+//     var answer = (R*T)/(z*F)*Math.log(Xout/Xin);
+//     equations[1].html('Answer: '+answer.toFixed(4)+'V');
+// }
 
 function disableInputForParticle(particleType) {
   var row = 4;

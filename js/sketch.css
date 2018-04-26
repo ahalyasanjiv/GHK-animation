@@ -168,3 +168,7 @@ body {
   font-size: 0.9em;
   padding:10px;
 }
+
+#ion-selector {
+  display: block;
+}
