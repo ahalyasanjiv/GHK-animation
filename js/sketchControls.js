@@ -59,9 +59,6 @@ var transferParticle = function(particleType,location) {
     oldInput.value(particles[location[particleType]][particleType].length);
     transferArray.push(new factory[particleType](OriX,OriY,diam,velocity,true));
     transferInput.value(particles[transferLocation][particleType].length);
-    // if (particleType == document.getElementById('4').value) {
-    //   NernstFormulaInput(particleType);
-    // }
     GHKFormula();
   }, 1200)
 }
@@ -178,9 +175,6 @@ function increase(evt) {
 
   particleArray.push(new factory[particleType](randomX,randomY,particlesProperties[particleType].radius,velocity, true));
   var updatedParticleAmount = particleArray.length;
-  // if (particleType == document.getElementById('4').value) {
-  //   NernstFormulaInput(particleType);
-  // }
   input[eventID].value(updatedParticleAmount);
   GHKFormula();
 }
@@ -203,9 +197,6 @@ function decrease(evt) {
   particleArray.splice(particleArray.length - 1, 1);
 
   var updatedParticleAmount = particleArray.length;
-  // if (particleType == document.getElementById('4').value) {
-  //   NernstFormulaInput(particleType);
-  // }
   input[eventID].value(updatedParticleAmount);
   GHKFormula();
 }
