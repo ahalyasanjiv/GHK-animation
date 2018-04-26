@@ -59,9 +59,7 @@ var transferParticle = function(particleType,location) {
     oldInput.value(particles[location[particleType]][particleType].length);
     transferArray.push(new factory[particleType](OriX,OriY,diam,velocity,true));
     transferInput.value(particles[transferLocation][particleType].length);
-    // if (particleType == document.getElementById('4').value) {
-    //   NernstFormulaInput(particleType);
-    // }
+    GHKFormula();
   }, 1200)
 }
 
@@ -177,10 +175,8 @@ function increase(evt) {
 
   particleArray.push(new factory[particleType](randomX,randomY,particlesProperties[particleType].radius,velocity, true));
   var updatedParticleAmount = particleArray.length;
-  // if (particleType == document.getElementById('4').value) {
-  //   NernstFormulaInput(particleType);
-  // }
   input[eventID].value(updatedParticleAmount);
+  GHKFormula();
 }
 
 function decrease(evt) {
@@ -201,10 +197,8 @@ function decrease(evt) {
   particleArray.splice(particleArray.length - 1, 1);
 
   var updatedParticleAmount = particleArray.length;
-  // if (particleType == document.getElementById('4').value) {
-  //   NernstFormulaInput(particleType);
-  // }
   input[eventID].value(updatedParticleAmount);
+  GHKFormula();
 }
 
 function ChangeNumParticles(evt) {
@@ -237,17 +231,13 @@ function ChangeNumParticles(evt) {
       randomY = containers[particleLocation].tl.y + particlesProperties[particleType].radius + (Math.floor(Math.random() * yRange));
       var velocity = createVector(-3, -3);
       particleArray.push(new factory[particleType](randomX,randomY,particlesProperties[particleType].radius,velocity, true));
-      // if (particleType == document.getElementById('4').value) {
-      //   NernstFormulaInput(particleType);
-      // }
+      GHKFormula();
     }
   }
   else if (updatedAmount < particleArray.length) {
     for (var i=0; i<difference; i++) {
       particleArray.splice(particleArray.length - 1, 1);
-      // if (particleType == document.getElementById('4').value) {
-      //   NernstFormulaInput(particleType);
-      // }
+      GHKFormula();
     }
   }
 }
@@ -289,15 +279,6 @@ function makeUIs() {
 
   // Set up the section where answers are displayed
   var answer = 0;
-
-  // equations[4] = createSelect();
-  // equations[4].id("ion-selector");
-  // for (var i=0; i<particleTypes.length; i++){
-  //   equations[4].option(particleTypes[i]);
-  // }
-  // equations[4].class('qoptions');
-  // equations[4].parent('equationdiv');
-  // equations[4].changed(NernstFormula);
   equations[1] = createElement('h3', 'Answer: '+answer+'V');
   equations[1].class('qoptions');
   equations[1].parent('equationdiv');
@@ -392,24 +373,21 @@ function makeUIs() {
   }
 }
 
-// function NernstFormula(evt) {
-//   console.log("called");
-//   var eventID = evt.target.id;
-//   var newParticleType = equations[eventID].value();
-//   var particleType = newParticleType;
-//   NernstFormulaInput(particleType);
-// }
-
-// function NernstFormulaInput(particleType) {
-//     var R = 8.314;
-//     var T = 37 + 273.13
-//     var z = particlesProperties[particleType]["charge"];
-//     Xout = particles["outside"][particleType].length;
-//     Xin = particles["inside"][particleType].length;
-//     var F = 96485.3329;//0.096485;
-//     var answer = (R*T)/(z*F)*Math.log(Xout/Xin);
-//     equations[1].html('Answer: '+answer.toFixed(4)+'V');
-// }
+function GHKFormula() {
+   var R = 8.314; // ideal gas constant
+    var T = 37 + 273.13; // 37 is the Human Body temperature
+    var F = 96485.3329; // Faraday's constant
+    var numerator = 0;
+    var denominator = 0;
+    // Accumulate sums for numerator and denominator
+    for (var i = 0; i < particleTypes.length; i++) {
+      var particleType = particleTypes[i];
+      numerator += particlesProperties[particleType]["permeability"] * particles["outside"][particleType].length;
+      denominator += particlesProperties[particleType]["permeability"] * particles["inside"][particleType].length
+    }
+    var answer = ((R*T)/F)*Math.log(numerator/denominator);
+    equations[1].html('Answer: '+answer.toFixed(4)+'V');
+}
 
 function disableInputForParticle(particleType) {
   var row = 4;
