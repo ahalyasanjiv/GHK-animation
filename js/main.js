@@ -89,8 +89,8 @@ function setup() {
      }
    }
   }
-
   makeUIs();
+  GHKFormula()
 }
 
 function draw() {

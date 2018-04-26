@@ -374,17 +374,17 @@ function makeUIs() {
 }
 
 function GHKFormula() {
-   var R = 8.314;
-    var T = 37 + 273.13
-    var F = 96485.3329;
+   var R = 8.314; // ideal gas constant
+    var T = 37 + 273.13; // 37 is the Human Body temperature
+    var F = 96485.3329; // Faraday's constant
     var numerator = 0;
     var denominator = 0;
+    // Accumulate sums for numerator and denominator
     for (var i = 0; i < particleTypes.length; i++) {
       var particleType = particleTypes[i];
       numerator += particlesProperties[particleType]["permeability"] * particles["outside"][particleType].length;
       denominator += particlesProperties[particleType]["permeability"] * particles["inside"][particleType].length
     }
-    
     var answer = ((R*T)/F)*Math.log(numerator/denominator);
     equations[1].html('Answer: '+answer.toFixed(4)+'V');
 }
