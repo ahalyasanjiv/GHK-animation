@@ -9,7 +9,7 @@ inEquilbrateState[particleTypes[1]] = false;
 
 var particlesProperties = {
   "Na":{"color":"#F5CE28","radius":15,"id":0,"display":true,"charge":1, "permeability":0.03},
-  "Cl":{"color":"#CD5C5C","radius":15,"id":1,"display":true,"charge":-1, "permeability":1},
+  "Cl":{"color":"#CD5C5C","radius":15,"id":1,"display":true,"charge":-1, "permeability":0.1},
   "K" :{"color":"#35B235","radius":15,"id":2,"display":true,"charge":1, "permeability":1}
 };
 

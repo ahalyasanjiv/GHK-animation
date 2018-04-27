@@ -10,14 +10,14 @@ function makeLayout() {
   leftBox = createDiv("");
   leftBox.id('leftbar');
   leftBox.parent('stage');
-  leftBox.size(0.25 * windowWidth, windowHeight - 8);  // subtract stage 4px border from top and bottom to remove scrollbars in the parent iframe. (so, 8px total)
+  leftBox.size(0.35 * windowWidth, windowHeight - 8);  // subtract stage 4px border from top and bottom to remove scrollbars in the parent iframe. (so, 8px total)
 
   // Create the div to actually contain the questions.
   questions = createDiv("");
   questions.id('questionsdiv');
   questions.parent('leftbar');
-  questions.size(0.25 * windowWidth, windowHeight - 8);
-  createElement("h3", "Questions").parent('questionsdiv');
+  questions.size(0.35 * windowWidth, windowHeight - 8);
+  createElement("h3", "Goldman-Hodgkin-Katz").parent('questionsdiv');
 
   var questions
   function httpGet(theUrl){
@@ -164,6 +164,14 @@ function makeLayout() {
 }
 
 function makeNeqMML() {
+  
+  // math1 = createElement("math");
+  // math1.attribute("xmlns", "http://www.w3.org/1998/Math/MathML");
+  // math1.id('math1');
+  // math1.parent('equationdiv');
+  // mi34 = createElement("mi", "Goldman-Hodgkin-Katz");
+  // mi34.parent("math1");
+
   math = createElement("math");
   math.attribute("xmlns", "http://www.w3.org/1998/Math/MathML");
   math.id('math');
@@ -205,8 +213,8 @@ function makeNeqMML() {
   // -------------------------------------
   mi4 = createElement("mi", "ln");
   mi4.parent("math");
-
-    // -------------------------------------
+  
+  // -------------------------------------
   mrow3 = createElement("mrow");
   mrow3.id("mrow3");
   mrow3.parent("math");
@@ -223,6 +231,7 @@ function makeNeqMML() {
   // -------------------------------------
   //Top
 
+  // Na+
   msub1 = createElement("msub");
   msub1.id("msub1");
   msub1.parent("mrow4");
@@ -230,7 +239,7 @@ function makeNeqMML() {
   mi6= createElement("mi", "P");
   mi6.parent("msub1");
 
-  mi7 = createElement("mi", "K");
+  mi7 = createElement("mi", "Na");
   mi7.parent("msub1");
 
   mi8 = createElement("mi", "[N");
@@ -242,19 +251,197 @@ function makeNeqMML() {
 
   mi9 = createElement("mi", "a");
   mi9.parent("msup0");
-  mo10 = createElement("mi", "+");
-  mo10.parent("msup0");
+  mo0 = createElement("mo", "+");
+  mo0.parent("msup0");
 
   msub2 = createElement("msub");
   msub2.id("msub2");
   msub2.parent("mrow4");
-  mo11 = createElement("mo", "]");
-  mo11.parent("msub2");
-  mi12 = createElement("mi", "out");
-  mi12.parent("msub2");
+  mo1 = createElement("mo", "]");
+  mo1.parent("msub2");
+  mi10 = createElement("mi", "out");
+  mi10.parent("msub2");
+
+
+  mo1 = createElement("mo", "+");
+  mo1.parent("mrow4");
+
+  // Cl
+
+  msub3 = createElement("msub");
+  msub3.id("msub3");
+  msub3.parent("mrow4");
+
+  mi11= createElement("mi", "P");
+  mi11.parent("msub3");
+
+  mi12 = createElement("mi", "Cl");
+  mi12.parent("msub3");
+
+  mi13 = createElement("mi", "[C");
+  mi13.parent("mrow4");
+
+  msup1 = createElement("msup");
+  msup1.id("msup1");
+  msup1.parent("mrow4");
+
+  mi14 = createElement("mi", "l");
+  mi14.parent("msup1");
+  mo2 = createElement("mo", "-");
+  mo2.parent("msup1");
+
+  msub4 = createElement("msub");
+  msub4.id("msub4");
+  msub4.parent("mrow4");
+  mo3 = createElement("mo", "]");
+  mo3.parent("msub4");
+  mi14 = createElement("mi", "in");
+  mi14.parent("msub4");
+
+  mo2 = createElement("mo", "+");
+  mo2.parent("mrow4");
+
+  // K
+
+  msub5 = createElement("msub");
+  msub5.id("msub5");
+  msub5.parent("mrow4");
+
+  mi15= createElement("mi", "P");
+  mi15.parent("msub5");
+
+  mi16 = createElement("mi", "K");
+  mi16.parent("msub5");
+
+  mo3 = createElement("mo", "[");
+  mo3.parent("mrow4");
+
+  msup2 = createElement("msup");
+  msup2.id("msup2");
+  msup2.parent("mrow4");
+
+  mi18 = createElement("mi", "K");
+  mi18.parent("msup2");
+  mo3 = createElement("mo", "-");
+  mo3.parent("msup2");
+
+  msub6 = createElement("msub");
+  msub6.id("msub6");
+  msub6.parent("mrow4");
+  mo4 = createElement("mo", "]");
+  mo4.parent("msub6");
+  mi19 = createElement("mi", "out");
+  mi19.parent("msub6");
 
   // -------------------------------------
   //Bottom
-  mi5 = createElement("mi", "Bottom");
-  mi5.parent("mfrac1");
+  
+  mrow5 = createElement("mrow");
+  mrow5.id("mrow5");
+  mrow5.parent("mfrac1");
+
+
+  // Na+
+  msub7 = createElement("msub");
+  msub7.id("msub7");
+  msub7.parent("mrow5");
+
+  mi20= createElement("mi", "P");
+  mi20.parent("msub7");
+
+  mi21 = createElement("mi", "Na");
+  mi21.parent("msub7");
+
+  mi22 = createElement("mi", "[N");
+  mi22.parent("mrow5");
+
+  msup3 = createElement("msup");
+  msup3.id("msup3");
+  msup3.parent("mrow5");
+
+  mi23 = createElement("mi", "a");
+  mi23.parent("msup3");
+  mo5 = createElement("mo", "+");
+  mo5.parent("msup3");
+
+  msub8 = createElement("msub");
+  msub8.id("msub8");
+  msub8.parent("mrow5");
+  mo6 = createElement("mo", "]");
+  mo6.parent("msub8");
+  mi24 = createElement("mi", "in");
+  mi24.parent("msub8");
+
+  mo7 = createElement("mo", "+");
+  mo7.parent("mrow5");
+
+  // Cl
+
+  msub9 = createElement("msub");
+  msub9.id("msub9");
+  msub9.parent("mrow5");
+
+  mi25= createElement("mi", "P");
+  mi25.parent("msub9");
+
+  mi26 = createElement("mi", "Cl");
+  mi26.parent("msub9");
+
+  mi27 = createElement("mi", "[C");
+  mi27.parent("mrow5");
+
+  msup4 = createElement("msup");
+  msup4.id("msup4");
+  msup4.parent("mrow5");
+
+  mi28 = createElement("mi", "l");
+  mi28.parent("msup4");
+  mo8 = createElement("mo", "-");
+  mo8.parent("msup4");
+
+  msub10 = createElement("msub");
+  msub10.id("msub10");
+  msub10.parent("mrow5");
+
+  mo9 = createElement("mo", "]");
+  mo9.parent("msub10");
+  mi29 = createElement("mi", "out");
+  mi29.parent("msub10");
+
+  mo7 = createElement("mo", "+");
+  mo7.parent("mrow5");
+
+
+  // K
+
+  msub11 = createElement("msub");
+  msub11.id("msub11");
+  msub11.parent("mrow5");
+
+  mi30= createElement("mi", "P");
+  mi30.parent("msub11");
+
+  mi31 = createElement("mi", "K");
+  mi31.parent("msub11");
+
+  mo8 = createElement("mo", "[");
+  mo8.parent("mrow5");
+
+  msup5 = createElement("msup");
+  msup5.id("msup5");
+  msup5.parent("mrow5");
+
+  mi32 = createElement("mi", "K");
+  mi32.parent("msup5");
+  mo9 = createElement("mo", "-");
+  mo9.parent("msup5");
+
+  msub12 = createElement("msub");
+  msub12.id("msub12");
+  msub12.parent("mrow5");
+  mo10 = createElement("mo", "]");
+  mo10.parent("msub12");
+  mi33 = createElement("mi", "in");
+  mi33.parent("msub12");
+
 }

@@ -257,6 +257,7 @@ function checkedEvent(evt) {
   else {
     enableInputForParticle(particleType);
   }
+  GHKFormula();
 }
 
 function makeUIs() {
@@ -382,8 +383,17 @@ function GHKFormula() {
     // Accumulate sums for numerator and denominator
     for (var i = 0; i < particleTypes.length; i++) {
       var particleType = particleTypes[i];
-      numerator += particlesProperties[particleType]["permeability"] * particles["outside"][particleType].length;
-      denominator += particlesProperties[particleType]["permeability"] * particles["inside"][particleType].length
+      console.log(particleType, ": ", particlesProperties[particleType]["display"]);
+      if (particlesProperties[particleType]["display"]) {
+        if (particlesProperties[particleType]["charge"] > 0) {
+          numerator += particlesProperties[particleType]["permeability"] * particles["outside"][particleType].length;
+          denominator += particlesProperties[particleType]["permeability"] * particles["inside"][particleType].length;
+        }
+        else {
+          numerator += particlesProperties[particleType]["permeability"] * particles["inside"][particleType].length;
+          denominator += particlesProperties[particleType]["permeability"] * particles["outside"][particleType].length;
+        }
+      }
     }
     var answer = ((R*T)/F)*Math.log(numerator/denominator);
     equations[1].html('Answer: '+answer.toFixed(4)+'V');
