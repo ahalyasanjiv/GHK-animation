@@ -8,9 +8,9 @@ inEquilbrateState[particleTypes[0]] = false;
 inEquilbrateState[particleTypes[1]] = false;
 
 var particlesProperties = {
-  "Na":{"color":"#FFC800","radius":15,"id":0,"display":true,"charge":1, "inside":2, "outside":14},
-  "Cl":{"color":"#CD5C5C","radius":15,"id":1,"display":true,"charge":-1, "inside":13, "outside":1},
-  "K" :{"color":"#35B235","radius":15,"id":2,"display":true,"charge":1, "inside":1, "outside":12}
+  "Na":{"color":"#F5CE28","radius":15,"id":0,"display":true,"charge":1, "permeability":0.03, "inside":2, "outside":14},
+  "Cl":{"color":"#CD5C5C","radius":15,"id":1,"display":true,"charge":-1, "permeability":0.1, "inside":13, "outside":1},
+  "K" :{"color":"#35B235","radius":15,"id":2,"display":true,"charge":1, "permeability":1, "inside":1, "outside":12}
 };
 
 var containerProperties = {
@@ -66,7 +66,7 @@ function setup() {
   var botLeft = new Point( 0, canHeight );
 
   containers["inside"] = new Container(topLeft, topRight, botRight, botLeft, containerProperties["inside"]["color"],"inside");
-  //containers["inside"].draw();
+    //containers["inside"].draw();
 
   var topLeft = new Point( 0, canHeight/2 );
   var topRight = new Point( canWidth, canHeight/2 );

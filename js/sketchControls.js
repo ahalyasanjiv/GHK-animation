@@ -383,7 +383,6 @@ function GHKFormula() {
     // Accumulate sums for numerator and denominator
     for (var i = 0; i < particleTypes.length; i++) {
       var particleType = particleTypes[i];
-      console.log(particleType, ": ", particlesProperties[particleType]["display"]);
       if (particlesProperties[particleType]["display"]) {
         if (particlesProperties[particleType]["charge"] > 0) {
           numerator += particlesProperties[particleType]["permeability"] * particles["outside"][particleType].length;
