@@ -66,7 +66,7 @@ function setup() {
   var botLeft = new Point( 0, canHeight );
 
   containers["inside"] = new Container(topLeft, topRight, botRight, botLeft, containerProperties["inside"]["color"],"inside");
-    //containers["inside"].draw();
+  //containers["inside"].draw();
 
   var topLeft = new Point( 0, canHeight/2 );
   var topRight = new Point( canWidth, canHeight/2 );
